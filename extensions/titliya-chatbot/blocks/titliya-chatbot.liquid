@@ -1,0 +1,262 @@
+<div id="titliya-ai-widget-{{ block.id }}" class="titliya-ai-widget">
+  <button class="titliya-ai-launcher" type="button" aria-label="Open TITLIYA AI chat">
+    <span class="titliya-ai-launcher-icon">✦</span>
+    <span>Ask Nora</span>
+  </button>
+
+  <section class="titliya-ai-panel" aria-label="TITLIYA shopping assistant" hidden>
+    <header class="titliya-ai-header">
+      <div>
+        <div class="titliya-ai-brand">TITLIYA <span>✦</span></div>
+        <div class="titliya-ai-subtitle">Your personal jewellery assistant</div>
+      </div>
+      <button class="titliya-ai-close" type="button" aria-label="Close chat">×</button>
+    </header>
+
+    <div class="titliya-ai-messages" aria-live="polite">
+      <div class="titliya-ai-message titliya-ai-bot">
+        Hi! Welcome to TITLIYA. ✨
+        <br><br>
+        I'm here to help you discover jewellery you'll love. What are you looking for today?
+      </div>
+    </div>
+
+    <div class="titliya-ai-suggestions">
+      <button type="button" data-query="Show me earrings">Earrings</button>
+      <button type="button" data-query="Show me necklaces">Necklaces</button>
+      <button type="button" data-query="Show me bracelets">Bracelets</button>
+      <button type="button" data-query="Show me hair clips">Hair clips</button>
+    </div>
+
+    <form class="titliya-ai-form">
+      <input type="text" placeholder="Ask me about jewellery..." aria-label="Your message" autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+    <div class="titliya-ai-footer">Thoughtfully styled by TITLIYA</div>
+  </section>
+</div>
+
+<style>
+#titliya-ai-widget-{{ block.id }} {
+  --titliya-green: #00382E;
+  --titliya-ivory: #FBF8F3;
+  --titliya-accent: #DB9A81;
+  font-family: Inter, Arial, sans-serif;
+}
+#titliya-ai-widget-{{ block.id }} * { box-sizing: border-box; }
+#titliya-ai-widget-{{ block.id }} .titliya-ai-launcher {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9998;
+  display: flex; align-items: center; gap: 10px;
+  border: 0; border-radius: 40px; padding: 15px 22px;
+  background: var(--titliya-green); color: white;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 5px 24px #00382e35;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-launcher-icon {
+  color: var(--titliya-accent); font-size: 21px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-panel {
+  position: fixed; right: 24px; bottom: 88px; z-index: 9999;
+  width: 380px; max-width: calc(100vw - 28px); height: 550px;
+  max-height: calc(100vh - 120px); background: var(--titliya-ivory);
+  border: 1px solid #e8e1d8; border-radius: 18px;
+  box-shadow: 0 12px 45px #172b2426; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-panel[hidden] { display: none; }
+#titliya-ai-widget-{{ block.id }} .titliya-ai-header {
+  padding: 20px; background: var(--titliya-green); color: white;
+  display: flex; justify-content: space-between; align-items: center;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-brand {
+  font-size: 18px; font-weight: 700; letter-spacing: 2px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-brand span { color: var(--titliya-accent); }
+#titliya-ai-widget-{{ block.id }} .titliya-ai-subtitle {
+  font-size: 11px; opacity: .8; margin-top: 5px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-close {
+  border: 0; background: transparent; color: white;
+  font-size: 27px; cursor: pointer;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-messages {
+  flex: 1; overflow-y: auto; padding: 18px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-message {
+  max-width: 90%; padding: 13px 15px; margin-bottom: 12px;
+  border-radius: 13px; font-size: 13px; line-height: 1.6;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-bot {
+  background: white; color: #303530; border: 1px solid #eee8df;
+  border-top-left-radius: 3px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-user {
+  margin-left: auto; background: var(--titliya-green);
+  color: white; border-top-right-radius: 3px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-suggestions {
+  display: flex; flex-wrap: wrap; gap: 7px; padding: 10px 14px;
+  border-top: 1px solid #eee8df;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-suggestions button {
+  background: white; color: var(--titliya-green);
+  border: 1px solid var(--titliya-green); border-radius: 20px;
+  padding: 8px 11px; font-size: 11px; cursor: pointer;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-form {
+  display: flex; gap: 8px; padding: 12px 14px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-form input {
+  flex: 1; min-width: 0; border: 1px solid #ddd5ca;
+  border-radius: 9px; padding: 12px; background: white; font-size: 13px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-form button {
+  border: 0; border-radius: 9px; padding: 0 16px;
+  color: white; background: var(--titliya-green);
+  font-weight: 600; cursor: pointer;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-footer {
+  text-align: center; color: #888; font-size: 10px;
+  padding: 0 10px 12px;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-product {
+  display: flex; gap: 11px; background: white;
+  padding: 9px; border-radius: 10px; margin-top: 9px;
+  text-decoration: none; color: #303530;
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-product img {
+  width: 65px; height: 65px; object-fit: contain;
+  border-radius: 7px; background: var(--titliya-ivory);
+}
+#titliya-ai-widget-{{ block.id }} .titliya-ai-product strong { display: block; font-size: 12px; }
+#titliya-ai-widget-{{ block.id }} .titliya-ai-product small {
+  display: block; margin-top: 5px; color: var(--titliya-green);
+}
+@media(max-width: 600px) {
+  #titliya-ai-widget-{{ block.id }} .titliya-ai-launcher {
+    right: 15px; bottom: 15px;
+  }
+  #titliya-ai-widget-{{ block.id }} .titliya-ai-panel {
+    right: 0; bottom: 0; width: 100%; max-width: 100%;
+    height: 75vh; max-height: 75vh; border-radius: 18px 18px 0 0;
+  }
+}
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('titliya-ai-widget-{{ block.id }}');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
+
+  const launcher = root.querySelector('.titliya-ai-launcher');
+  const panel = root.querySelector('.titliya-ai-panel');
+  const close = root.querySelector('.titliya-ai-close');
+  const form = root.querySelector('.titliya-ai-form');
+  const input = form.querySelector('input');
+  const messages = root.querySelector('.titliya-ai-messages');
+
+  launcher.addEventListener('click', () => {
+    panel.hidden = false;
+    launcher.style.display = 'none';
+    input.focus();
+  });
+
+  close.addEventListener('click', () => {
+    panel.hidden = true;
+    launcher.style.display = 'flex';
+  });
+
+  function addMessage(text, type) {
+    const item = document.createElement('div');
+    item.className = 'titliya-ai-message titliya-ai-' + type;
+    item.textContent = text;
+    messages.appendChild(item);
+    messages.scrollTop = messages.scrollHeight;
+    return item;
+  }
+
+  async function searchProducts(query) {
+    const url = '/search/suggest.json?q=' + encodeURIComponent(query) +
+      '&resources[type]=product&resources[limit]=4&resources[options][unavailable_products]=hide';
+
+    const response = await fetch(url, {
+      headers: { 'Accept': 'application/json' }
+    });
+    if (!response.ok) throw new Error('Product search failed');
+    const data = await response.json();
+    return data.resources?.results?.products || [];
+  }
+
+  async function reply(query) {
+    const text = query.toLowerCase();
+    let searchTerm = query;
+
+    if (text.includes('earring')) searchTerm = 'earrings';
+    else if (text.includes('necklace')) searchTerm = 'necklace';
+    else if (text.includes('bracelet')) searchTerm = 'bracelet';
+    else if (text.includes('hair clip')) searchTerm = 'hair clip';
+    else if (text.includes('under')) searchTerm = query.replace(/under/gi, '').trim();
+
+    const loading = addMessage('Let me find jewellery for you...', 'bot');
+
+    try {
+      const products = await searchProducts(searchTerm);
+      loading.remove();
+
+      if (!products.length) {
+        addMessage('I could not find matching products just now. Try searching for earrings, necklaces, bracelets or hair clips.', 'bot');
+        return;
+      }
+
+      addMessage('Here are some pieces you might love ✨', 'bot');
+
+      products.forEach(product => {
+        const card = document.createElement('a');
+        card.className = 'titliya-ai-product';
+        card.href = product.url;
+        const image = document.createElement('img');
+        image.src = product.image || '';
+        image.alt = product.title || 'TITLIYA jewellery';
+        const details = document.createElement('span');
+        const title = document.createElement('strong');
+        title.textContent = product.title || 'Jewellery';
+        const price = document.createElement('small');
+        price.textContent = product.price || '';
+        details.append(title, price);
+        card.append(image, details);
+        messages.appendChild(card);
+      });
+      messages.scrollTop = messages.scrollHeight;
+    } catch (error) {
+      loading.remove();
+      addMessage('Sorry, product search is temporarily unavailable. Please try again.', 'bot');
+    }
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const query = input.value.trim();
+    if (!query) return;
+    addMessage(query, 'user');
+    input.value = '';
+    reply(query);
+  });
+
+  root.querySelectorAll('[data-query]').forEach(button => {
+    button.addEventListener('click', () => {
+      const query = button.dataset.query;
+      addMessage(query, 'user');
+      reply(query);
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "TITLIYA AI Chatbot",
+  "target": "body",
+  "settings": []
+}
+{% endschema %}
